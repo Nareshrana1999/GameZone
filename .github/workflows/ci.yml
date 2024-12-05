@@ -1,0 +1,34 @@
+name: CI Pipeline
+
+# Trigger the workflow on push or pull request events to the main branch
+on:
+  push:
+    branches:
+      - main  # or your default branch
+  pull_request:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  build:
+    # Define the type of virtual environment to run the job
+    runs-on: ubuntu-latest  # Use Ubuntu as the runner OS
+
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify the Node.js version you are using (e.g., '14', '16')
+
+      # Install project dependencies (e.g., for Node.js, npm)
+      - name: Install dependencies
+        run: npm install
+
+      # Run tests using npm test or another test command based on your setup
+      - name: Run tests
+        run: npm test
