@@ -19,7 +19,7 @@ function rollDice() {
 
 // Function to display the dice image based on the roll value
 function displayDice(diceValue, player) {
-  const diceImage = `assets/dice-${diceValue}.png`;  // Construct the image path
+  const diceImage = `images/dice-${diceValue}.png`;  // Construct the image path
   if (player === 1) {
     player1DiceImg.src = diceImage;
     player1Dice.classList.remove('hidden');
