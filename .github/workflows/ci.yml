@@ -1,34 +1,45 @@
-name: CI Pipeline
+name: CI for HTML Project
 
-# Trigger the workflow on push or pull request events to the main branch
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main  # Trigger on pushes to the main branch
   pull_request:
     branches:
-      - main  # or your default branch
+      - main  # Trigger on PRs to the main branch
 
 jobs:
   build:
-    # Define the type of virtual environment to run the job
-    runs-on: ubuntu-latest  # Use Ubuntu as the runner OS
+    runs-on: ubuntu-latest  # Use a Linux-based environment
 
     steps:
-      # Checkout the repository code
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # Specify the Node.js version you are using (e.g., '14', '16')
+          node-version: '14'  # You can specify the version you need
 
-      # Install project dependencies (e.g., for Node.js, npm)
-      - name: Install dependencies
-        run: npm install
+      - name: Install Dependencies (if any)
+        run: |
+          npm install
 
-      # Run tests using npm test or another test command based on your setup
-      - name: Run tests
-        run: npm test
+      - name: Lint HTML and CSS
+        run: |
+          npm install -g htmlhint stylelint
+          htmlhint **/*.html
+          stylelint "**/*.css"
+
+      - name: Deploy to GitHub Pages (Optional)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
+          git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push origin main
+
+      - name: End the Job
+        run: echo "CI Process Finished"
