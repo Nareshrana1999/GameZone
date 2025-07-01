@@ -1,5 +1,8 @@
 
+
 # GameZone
+
+▶️ **[Play GameZone Online Instantly (GitHub Pages)](https://nareshrana1999.github.io/GameZone/)**
 
 GameZone is a collection of classic and modern browser-based games, all in one place! Each game is self-contained and playable directly in your web browser. This project is perfect for learning, fun, and sharing with friends.
 
@@ -53,9 +56,15 @@ GameZone/
 
 ---
 
+
 ## 🚀 Getting Started
 
-### 1. Clone the repository
+### ▶️ [Run GameZone Online (GitHub Pages)](https://nareshrana1999.github.io/GameZone/)
+You can play all games instantly online without downloading anything:
+**[https://nareshrana1999.github.io/GameZone/](https://nareshrana1999.github.io/GameZone/)**
+
+
+### 1. Clone the repository (for local use or development)
 ```sh
 git clone https://github.com/Nareshrana1999/GameZone.git
 cd GameZone
@@ -101,18 +110,6 @@ Each game has its own instructions and rules on its page. Here is a summary:
 2. Add your `index.html`, `style.css`, `script.js`, and any images.
 3. Add a logo for your game in `Assets/`.
 4. Edit `index.html` in the root folder to add your game to the menu.
-
----
-
-## 🤝 Contributing
-We welcome contributions from everyone! To contribute:
-1. Fork this repository.
-2. Create a new branch for your feature or bugfix.
-3. Commit your changes with clear messages.
-4. Push to your fork and submit a pull request.
-5. Wait for review and feedback.
-
-All contributions, big or small, are appreciated! Please follow the code style and add comments where necessary.
 
 ---
 
